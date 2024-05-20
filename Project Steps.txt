@@ -1,0 +1,32 @@
+Implement ASP.NET Core Web API CRUD Operation with Entity Framework Core Using .NET 8.0:
+link: https://www.youtube.com/watch?v=6YIRKBsRWVI
+
+Step-1: Select ASP.NET Core Web API
+
+Step-2: Install 2 Packages : right click on dependencies file and click on manage NuGet packages
+			i)  Microsoft.EntityFrameworkCore.SqlServer
+			ii) Microsoft.EntityFrameworkCore.Tools
+			
+Step-3: Create a Model to fetch the data.
+
+Step-4: Create a DbContext class that is required by EFCore to make a connection between Database & Application.
+
+Step-5: Add a ConnectionStrings in appsettings.json file.
+		  "ConnectionStrings": {
+			"DefaultConnection": "Server=DESKTOP-SC1LO7R;Database=EmployeeApiEFCoreDb;Trusted_connection=true;TrustServerCertificate=True"
+		  }
+
+Step-6: use the connectionstrings inside program.cs file (injecting ApplicationDbContext inside the program.cs file).
+			builder.Services.AddDbContext<ApplicationDbContext>(
+    options => options.UseSqlServer(builder.Configuration.GetConnectionString("DefaultConnection")));
+	
+Step-7: Then run 2 command in Package Manager Console:
+			i)  Add-Migration "Initial Migration"
+			ii) Update-Database
+
+Step-8: Add controller - API controller - API Controller empty
+	
+Step-9: Then CRUD operation occur.
+
+Step-10: Create some DTO(Data Transfer Object) class in model for insert operation. DTO will carry the data and transfer the data
+		 from one operation to another.
